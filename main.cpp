@@ -1,6 +1,14 @@
-#include <iostream>
+#include <iostream> 
+#include "Game.h"
 
 int main() {
-    std::cout << "CrazyTanks!" << std::endl;
-    return 0;
+	srand(time(0));
+	Game game;
+	while (!(game.isOver() || game.isVictory())) {
+		game.run();
+	}
+	system("cls");
+	std::cout << "YOU " << (game.isOver() ? "LOSE" : "WIN");
+	std::cout << std::endl;
+	return 0;
 }
